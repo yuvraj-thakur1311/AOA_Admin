@@ -1,5 +1,10 @@
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import {
+  Injectable,
+  UnauthorizedException,
+  BadRequestException,
+} from "@nestjs/common";
 import { UsersService } from "../users/users.service";
+import * as crypto from "crypto";
 
 @Injectable()
 export class AuthService {
@@ -21,5 +26,39 @@ export class AuthService {
       practitionerType: user.practitionerType,
       userId: user.id,
     };
+  }
+
+  async forgotPassword(email: string) {
+    const user = await this.usersService.findByEmail(email);
+
+    if (!user) {
+      return { message: "If user exists, reset link sent" };
+    }
+    const token = crypto.randomBytes(32).toString("hex");
+    user.resetPasswordToken = token;
+    user.resetPasswordExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 mins
+    await this.usersService.update(user.id, user);
+    console.log("RESET TOKEN (DEV ONLY):", token);
+    return { message: "Reset token generated", token };
+  }
+
+  async resetPassword(token: string, newPassword: string) {
+    const user = await this.usersService.findByResetToken(token);
+
+    if (
+      !user ||
+      !user.resetPasswordExpires ||
+      user.resetPasswordExpires < new Date()
+    ) {
+      throw new BadRequestException("Token invalid or expired");
+    }
+
+    user.password = newPassword;
+    user.resetPasswordToken = null;
+    user.resetPasswordExpires = null;
+
+    await this.usersService.update(user.id, user);
+
+    return { message: "Password reset successful" };
   }
 }

@@ -173,5 +173,9 @@ export class UsersService {
 
     return this.usersRepository.save(admin);
   }
-
+  async findByResetToken(token: string): Promise<User | null> {
+    return this.usersRepository.findOne({
+      where: { resetPasswordToken: token },
+    });
+  }
 }

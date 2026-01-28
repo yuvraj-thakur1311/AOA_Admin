@@ -61,4 +61,10 @@ export class User {
 
   @OneToMany(() => Address, (address) => address.user)
   addresses: Address[];
+
+  @Column({ type: "varchar", nullable: true })
+  resetPasswordToken: string | null;
+
+  @Column({ type: "timestamp", nullable: true })
+  resetPasswordExpires: Date | null;
 }

@@ -1,5 +1,10 @@
+
 @import "tailwindcss";
 @import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -146,7 +151,9 @@
     @apply border-border outline-ring/50;
   }
   body {
+    font-family: 'Ubuntu', sans-serif;
     @apply bg-background text-foreground;
+    
   }
 }
 html, body {
