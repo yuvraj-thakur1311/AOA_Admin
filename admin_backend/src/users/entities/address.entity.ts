@@ -41,7 +41,7 @@ export class Address {
   @Column({ type: "uuid" })
   user_id: string;
 
-  @ManyToOne(() => User, { onDelete: "CASCADE" })
+  @ManyToOne(() => User, { onDelete: "CASCADE", createForeignKeyConstraints: false })
   @JoinColumn({ name: "user_id" })
   user: User;
 

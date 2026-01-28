@@ -8,19 +8,37 @@ import * as crypto from "crypto";
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) { }
 
   async login(email: string, password: string) {
     const user = await this.usersService.findByEmail(email);
 
-    if (!user || user.password !== password) {
+    // 🔍 DEBUG: Log login attempt details
+    console.log('🔍 Admin Login attempt for email:', email);
+    console.log('🔍 User found:', !!user);
+
+    if (!user) {
+      console.log('❌ User not found in database');
+      throw new UnauthorizedException("Invalid credentials");
+    }
+
+    // 🔍 DEBUG: Log password comparison
+    console.log('🔍 Password from request:', password);
+    console.log('🔍 Password from database:', user.password);
+    console.log('🔍 Passwords match:', user.password === password);
+    console.log('🔍 User practitionerType:', user.practitionerType);
+
+    if (user.password !== password) {
+      console.log('❌ Password mismatch');
       throw new UnauthorizedException("Invalid credentials");
     }
 
     if (user.practitionerType !== "admin") {
+      console.log('❌ Not an admin user, type is:', user.practitionerType);
       throw new UnauthorizedException("Access denied: admin only");
     }
 
+    console.log('✅ Admin login successful');
     return {
       accessToken: "dummy-token",
       practitionerType: user.practitionerType,

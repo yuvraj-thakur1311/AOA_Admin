@@ -12,6 +12,7 @@ async function bootstrap() {
       origin: [
         "http://localhost:5173", // original frontend
         "http://localhost:5175", // admin frontend
+        "http://localhost:5174", // current frontend port
       ],
       credentials: true,
     });
