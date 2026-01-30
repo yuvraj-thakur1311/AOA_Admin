@@ -56,15 +56,15 @@ export default function ViewPartnerSheet({
     "
   >
     {/* HEADER */}
-    <div className="border-b px-6 py-4 bg-red-50">
+    <div className="border-b px-6 py-4 " style={{backgroundColor:"#d2e9f2bd"}}>
       <h2 className="text-lg font-semibold">Partner Details</h2>
     </div>
 
     <div className="h-[calc(100vh-80px)] overflow-y-auto px-6 py-6 space-y-6">
       {/* ================= BASIC INFO ================= */}
-      <Card className="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-100 shadow-sm">
+      <Card className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 shadow-sm">
         <CardHeader className="flex flex-row items-center gap-2">
-          <User className="h-4 w-4 text-red-700" />
+          <User className="h-4 w-4 text-blue-400" />
           <CardTitle className="text-sm">Basic Information</CardTitle>
         </CardHeader>
 
@@ -75,9 +75,9 @@ export default function ViewPartnerSheet({
       </Card>
 
       {/* ================= CONTACT INFO ================= */}
-      <Card className="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-100 shadow-sm">
+      <Card className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 shadow-sm">
         <CardHeader className="flex flex-row items-center gap-2">
-          <Phone className="h-4 w-4 text-red-700" />
+          <Phone className="h-4 w-4 text-blue-400" />
           <CardTitle className="text-sm">Contact Information</CardTitle>
         </CardHeader>
 
@@ -87,9 +87,9 @@ export default function ViewPartnerSheet({
       </Card>
 
       {/* ================= PROFESSIONAL INFO ================= */}
-      <Card className="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-100 shadow-sm">
+      <Card className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 shadow-sm">
         <CardHeader className="flex flex-row items-center gap-2">
-          <Briefcase className="h-4 w-4 text-red-700" />
+          <Briefcase className="h-4 w-4 text-blue-400" />
           <CardTitle className="text-sm">Professional Information</CardTitle>
         </CardHeader>
 
@@ -102,9 +102,9 @@ export default function ViewPartnerSheet({
       </Card>
 
       {/* ================= STATUS ================= */}
-      <Card className="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-100 shadow-sm">
+      <Card className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 shadow-sm">
         <CardHeader className="flex flex-row items-center gap-2">
-          <ShieldCheck className="h-4 w-4 text-red-700" />
+          <ShieldCheck className="h-4 w-4 text-blue-400" />
           <CardTitle className="text-sm">Status</CardTitle>
         </CardHeader>
 
@@ -114,9 +114,9 @@ export default function ViewPartnerSheet({
       </Card>
 
       {/* ================= ADDRESS ================= */}
-      <Card className="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-100 shadow-sm">
+      <Card className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 shadow-sm">
         <CardHeader className="flex flex-row items-center gap-2">
-          <MapPin className="h-4 w-4 text-red-700" />
+          <MapPin className="h-4 w-4 text-blue-400" />
           <CardTitle className="text-sm">Address Information</CardTitle>
         </CardHeader>
 
@@ -136,7 +136,7 @@ export default function ViewPartnerSheet({
               </div>
             </div>
           ) : (
-            <span className="h-4 w-4 text-red-700">
+            <span className="h-4 w-4 text-blue-400">
               No address information available
             </span>
           )}

@@ -1,4 +1,4 @@
-import { useForm, useFieldArray} from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import AddressFields from "./AddressFields";
 import RequiredLabel from "./RequiredLabel";
@@ -243,7 +243,6 @@ export default function InviteMemberForm({
           <Button
             type="button"
             variant="outline"
-            
             onClick={() =>
               append({
                 addressType: "",
@@ -263,7 +262,11 @@ export default function InviteMemberForm({
 
         {/* ---------- ACTIONS ---------- */}
         <div className="flex justify-end">
-          <Button type="submit" style={{ background: "var(--brand-red)" }}>
+          <Button
+            type="submit"
+            style={{ background: "var(--brand-orange)" }}
+            className="hover:opacity-70 transition-opacity duration-200"
+          >
             Invite Practice
           </Button>
         </div>

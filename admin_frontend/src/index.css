@@ -18,8 +18,9 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
-    --brand-red: #9f2f25;
-    --brand-red-dark: #8a281f;
+    --brand-blue: #065ca2;
+    --brand-blue-dark: #044378;
+    --brand-orange:#ff5f30;
     --brand-gray: #f4f4f5;
     --table-header: #d6d6da;
   }

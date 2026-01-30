@@ -25,14 +25,15 @@ export default function UserFormSheet({
           sm:w-[700px]
           lg:w-[900px]
           sm:max-w-[700px]
-          lg:max-w-[900px]
+          lg:max-w-[750px]
           h-full
           overflow-hidden
           p-0
         "
       >
         {/* ✅ FIXED HEADER */}
-        <div className="border-b px-6 py-4 bg-red-50">
+        <div className="border-b px-6 py-4"
+        style={{backgroundColor:"#d2e9f2bd"}}>
           <h2 className="text-lg font-semibold">
             Invite Practice
           </h2>
