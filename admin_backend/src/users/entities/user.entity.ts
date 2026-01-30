@@ -67,4 +67,7 @@ export class User {
 
   @Column({ type: "timestamp", nullable: true })
   resetPasswordExpires: Date | null;
+
+  @Column({ type: 'uuid', nullable: true })
+  tenantId: string | null;
 }
