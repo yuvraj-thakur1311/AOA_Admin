@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <header
       className="h-14 w-full flex items-center justify-between border-b border-border px-10 text-white shadow-md"
-      style={{ backgroundColor: "var(--brand-red)" }}
+      style={{ backgroundColor: "var(--brand-blue)" }}
     >
       <h1 className="text-2xl font-semibold">Admin Portal</h1>
 

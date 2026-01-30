@@ -50,8 +50,8 @@ export default function Partners() {
 
         <button
           onClick={() => setOpenSheet(true)}
-          className="h-9 rounded-md bg-red-600 px-4 text-sm font-medium text-white"
-          style={{ backgroundColor: "var(--brand-red)" }}
+          className="h-9 rounded-md  px-4 text-sm font-medium text-white hover:opacity-70 transition-opacity duration-200"
+          style={{ backgroundColor: "var(--brand-orange)" }}
         >
           Add Partner
         </button>
@@ -74,7 +74,7 @@ export default function Partners() {
           background: "#fff",
           borderRadius: "12px",
           overflow: "hidden",
-          boxShadow: "0 1px 2px rgba(0,0,0,0.05)",
+          border: "1px solid #b4b4b4",
           height: "100vh",
         }}
       >

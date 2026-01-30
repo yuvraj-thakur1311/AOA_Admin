@@ -57,7 +57,7 @@ export default function Team() {
           onClick={() => setOpenSheet(true)}
           style={{
             height: "36px",
-            backgroundColor: "var(--brand-red)",
+            backgroundColor: "var(--brand-orange)",
             color: "white",
             border: "none",
             borderRadius: "6px",
@@ -66,6 +66,7 @@ export default function Team() {
             fontWeight: 500,
             cursor: "pointer",
           }}
+          className="hover:opacity-70 transition-opacity duration-200"
         >
           Invite a Practice
         </button>
@@ -89,8 +90,9 @@ export default function Team() {
           background: "#fff",
           borderRadius: "12px",
           overflow: "hidden",
-          boxShadow: "0 1px 2px rgba(0,0,0,0.05)",
+          border: "1px solid #b4b4b4",
           height: "100vh",
+          boxShadow: "none",
         }}
       >
         <table
@@ -162,7 +164,12 @@ export default function Team() {
               const status: MemberStatus = m.status ?? "Active";
 
               return (
-                <tr key={m.id}>
+                <tr
+                  key={m.id}
+                  style={{
+                    borderBottom:"1px solid #b4b4b4",
+                  }}
+                >
                   <td style={cell}>{m.firstName}</td>
                   <td style={cell}>{m.lastName}</td>
                   <td style={{ ...cell, color: "#2563eb" }}>{m.email}</td>
@@ -220,6 +227,7 @@ const cell: React.CSSProperties = {
   padding: "14px 16px",
   color: "#374151",
   verticalAlign: "middle",
+  borderTop: "1px solid #e7e7e7",
 };
 
 const emptyCell: React.CSSProperties = {

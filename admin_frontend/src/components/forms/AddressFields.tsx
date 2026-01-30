@@ -118,7 +118,8 @@ export default function AddressFields({
           type="button"
           variant="destructive"
           onClick={() => remove(index)}
-          style={{ background: "var(--brand-red)" }}
+          style={{ background: "var(--brand-orange)" }}
+          className="hover:opacity-70 transition-opacity duration-200"
         >
           Remove address
         </Button>
