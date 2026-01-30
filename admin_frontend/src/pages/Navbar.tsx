@@ -10,8 +10,6 @@ export default function Navbar() {
   const handleLogout = () => {
     console.log("Logged out");
     localStorage.removeItem("accessToken");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("practitionerType")
     navigate("/login");
   };
 
