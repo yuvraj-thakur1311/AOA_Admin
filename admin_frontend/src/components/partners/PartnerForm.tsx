@@ -70,7 +70,7 @@ export default function PartnerForm({ onSuccess }: Props) {
   }
 
   const onSubmit = async (data: PartnerFormValues) => {
-    await axios.post("http://localhost:5000/partners", {
+    await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/partners`, {
       ...data,
       practitionerType: data.practitionerType || null,
       street: data.street || null,

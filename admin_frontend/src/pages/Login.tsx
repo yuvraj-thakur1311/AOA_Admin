@@ -26,7 +26,7 @@ const Login: React.FC = () => {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5000/auth/login", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -50,7 +50,7 @@ const Login: React.FC = () => {
     setError("");
     setMessage("");
 
-    const res = await fetch("http://localhost:5000/auth/forgot-password", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/auth/forgot-password`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
@@ -82,7 +82,7 @@ const Login: React.FC = () => {
       return;
     }
 
-    const res = await fetch("http://localhost:5000/auth/reset-password", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/auth/reset-password`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

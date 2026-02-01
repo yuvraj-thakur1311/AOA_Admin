@@ -17,7 +17,7 @@ export default function Team() {
   /* ---------- FETCH MEMBERS ---------- */
   const fetchMembers = async (): Promise<void> => {
     try {
-      const res = await fetch("http://localhost:5000/members");
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/members`);
       const data = await res.json();
       setMembers(data.data);
     } catch (error) {
@@ -36,7 +36,7 @@ export default function Team() {
     const newStatus: MemberStatus =
       member.status === "Active" ? "Inactive" : "Active";
 
-    await fetch(`http://localhost:5000/members/${member.id}`, {
+    await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/members/${member.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: newStatus }),

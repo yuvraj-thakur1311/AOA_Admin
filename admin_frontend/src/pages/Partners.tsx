@@ -14,7 +14,7 @@ export default function Partners() {
 
   const fetchPartners = async () => {
     try {
-      const res = await fetch("http://localhost:5000/partners");
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/partners`);
       const data = await res.json();
       setPartners(data.data);
     } catch (e) {
@@ -32,7 +32,7 @@ export default function Partners() {
     const newStatus: PartnerStatus =
       partner.status === "Active" ? "Inactive" : "Active";
 
-    await fetch(`http://localhost:5000/partners/${partner.id}`, {
+    await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/partners/${partner.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: newStatus }),
@@ -127,11 +127,10 @@ export default function Partners() {
                     </td>
                     <td className="px-4 py-3">
                       <span
-                        className={`rounded-full px-3 py-1 text-xs font-medium ${
-                          p.status === "Active"
+                        className={`rounded-full px-3 py-1 text-xs font-medium ${p.status === "Active"
                             ? "bg-green-100 text-green-700"
                             : "bg-red-100 text-red-700"
-                        }`}
+                          }`}
                       >
                         {p.status}
                       </span>
