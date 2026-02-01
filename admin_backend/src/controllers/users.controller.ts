@@ -10,14 +10,14 @@ import {
   HttpStatus,
   HttpCode,
 } from "@nestjs/common";
-import { UsersService } from "./users.service";
-import { CreatePracticeDto } from "./dto/create-practice.dto";
-import { CreatePartnerDto } from "./dto/create-partner.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
+import { UsersService } from "../services/users.service";
+import { CreatePracticeDto } from "../dtos/users/create-practice.dto";
+import { CreatePartnerDto } from "../dtos/users/create-partner.dto";
+import { UpdateUserDto } from "../dtos/users/update-user.dto";
 
 @Controller()
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) { }
 
   /* =========================
      COMMON RESPONSE BUILDER

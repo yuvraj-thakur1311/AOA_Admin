@@ -1,11 +1,11 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { User, UserStatus } from "./entities/user.entity";
-import { Address } from "./entities/address.entity";
-import { CreatePracticeDto } from "./dto/create-practice.dto";
-import { CreatePartnerDto } from "./dto/create-partner.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
+import { User, UserStatus } from "../entities/user.entity";
+import { Address } from "../entities/address.entity";
+import { CreatePracticeDto } from "../dtos/users/create-practice.dto";
+import { CreatePartnerDto } from "../dtos/users/create-partner.dto";
+import { UpdateUserDto } from "../dtos/users/update-user.dto";
 
 @Injectable()
 export class UsersService {
@@ -14,7 +14,7 @@ export class UsersService {
     private usersRepository: Repository<User>,
     @InjectRepository(Address)
     private addressRepository: Repository<Address>,
-  ) {}
+  ) { }
 
   async createPractice(createPracticeDto: CreatePracticeDto): Promise<User> {
     const password = `${createPracticeDto.firstName}@2026`;

@@ -2,8 +2,12 @@ import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
-import { UsersModule } from "./users/users.module";
-import { AuthModule } from "./auth/auth.module";
+import { UsersController } from "./controllers/users.controller";
+import { AuthController } from "./controllers/auth.controller";
+import { UsersService } from "./services/users.service";
+import { AuthService } from "./services/auth.service";
+import { User } from "./entities/user.entity";
+import { Address } from "./entities/address.entity";
 
 @Module({
   imports: [
@@ -41,9 +45,9 @@ import { AuthModule } from "./auth/auth.module";
         },
       }),
     }),
-
-    UsersModule,
-    AuthModule,
+    TypeOrmModule.forFeature([User, Address]),
   ],
+  controllers: [UsersController, AuthController],
+  providers: [UsersService, AuthService],
 })
-export class AppModule {}
+export class AppModule { }

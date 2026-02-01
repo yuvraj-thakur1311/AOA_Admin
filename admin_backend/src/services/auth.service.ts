@@ -3,7 +3,7 @@ import {
   UnauthorizedException,
   BadRequestException,
 } from "@nestjs/common";
-import { UsersService } from "../users/users.service";
+import { UsersService } from "../services/users.service";
 import * as crypto from "crypto";
 
 @Injectable()
