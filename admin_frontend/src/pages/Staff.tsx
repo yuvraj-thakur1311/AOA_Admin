@@ -73,11 +73,18 @@ export default function Team() {
       </div>
 
       {/* ---------- SHEET ---------- */}
+       {loading ? (
+        <div className="space-y-4">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <DefaultSkeleton key={index} />
+          ))}
+        </div>
+      ) : (
       <UserFormSheet
         open={openSheet}
         onOpenChange={setOpenSheet}
         onSuccess={fetchMembers}
-      />
+      />)}
       <ViewMemberSheet
         open={viewOpen}
         onOpenChange={setViewOpen}

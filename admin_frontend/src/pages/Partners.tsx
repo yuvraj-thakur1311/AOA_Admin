@@ -56,12 +56,18 @@ export default function Partners() {
           Add Partner
         </button>
       </div>
-
+  {loading ? (
+        <div className="space-y-4">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <DefaultSkeleton key={index} />
+          ))}
+        </div>
+      ) : (
       <PartnerFormSheet
         open={openSheet}
         onOpenChange={setOpenSheet}
         onSuccess={fetchPartners}
-      />
+      />)}
       <ViewPartnerSheet
         open={viewOpen}
         onOpenChange={setViewOpen}

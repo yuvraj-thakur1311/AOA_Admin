@@ -113,7 +113,7 @@ const Login: React.FC = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/src/assets/imgDental.jpg')` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-900/80 to-black/70"></div>
+          {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-400/40 to-black/70"></div> */}
         </div>
       </div>
 
@@ -156,7 +156,8 @@ const Login: React.FC = () => {
                 required
               />
 
-              <button className="w-full py-3 bg-red-800 text-white rounded-lg">
+              <button className="w-full py-3 text-white rounded-lg bg-[#409bc8] hover:bg-[#3587af] transition-colors"
+              >
                 Login
               </button>
 
@@ -164,7 +165,7 @@ const Login: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setMode("forgot")}
-                  className="text-sm text-red-800 hover:underline"
+                  className="text-sm text-black-800 hover:underline"
                 >
                   Forgot Password?
                 </button>
@@ -185,14 +186,14 @@ const Login: React.FC = () => {
 
               <button
                 onClick={handleForgot}
-                className="w-full py-3 bg-red-800 text-white rounded-lg"
+                className="w-full py-3 text-white rounded-lg bg-[#409bc8] hover:bg-[#3587af] transition-colors"
               >
                 Send Reset
               </button>
 
               <button
                 onClick={() => setMode("login")}
-                className="text-sm text-red-800 hover:underline"
+                className="text-sm text-black-800 hover:underline"
               >
                 <div className="flex flex-1 items-center  gap-2">
                   <ArrowLeft className="h-2 w-2" />
@@ -228,8 +229,8 @@ const Login: React.FC = () => {
               <button
                 onClick={handleReset}
                 disabled={passwordsMismatch}
-                className={`w-full py-3 rounded-lg text-white
-                ${passwordsMismatch ? "bg-gray-400 cursor-not-allowed" : "bg-red-800"}`}
+                className={`w-full py-3 text-white rounded-lg bg-[#409bc8] hover:bg-[#3587af] transition-colors
+                ${passwordsMismatch ? "bg-gray-400 cursor-not-allowed" : "bg-[#409bc8]"}`}
               >
                 Reset Password
               </button>
